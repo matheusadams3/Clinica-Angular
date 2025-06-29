@@ -1,5 +1,34 @@
-package io.github.jiangdequan;
-
-public class perfil.model.ts {
-    
+export interface Perfil {
+  id: number;
+  nome: string;
+  cadastrarFuncionario: boolean;
+  lerFuncionario: boolean;
+  atualizarFuncionario: boolean;
+  deletarFuncionario: boolean;
+  listarFuncionario: boolean;
+  cadastrarPaciente: boolean;
+  lerPaciente: boolean;
+  atualizarPaciente: boolean;
+  deletarPaciente: boolean;
+  listarPaciente: boolean;
+  cadastrarConsulta: boolean;
+  lerConsulta: boolean;
+  atualizarConsulta: boolean;
+  deletarConsulta: boolean;
+  listarConsulta: boolean;
+  cadastrarEspecialidade: boolean;
+  lerEspecialidade: boolean;
+  atualizarEspecialidade: boolean;
+  deletarEspecialidade: boolean;
+  listarEspecialidade: boolean;
+  cadastrarConvenio: boolean;
+  lerConvenio: boolean;
+  atualizarConvenio: boolean;
+  deletarConvenio: boolean;
+  listarConvenio: boolean;
+  cadastrarProntuario: boolean;
+  lerProntuario: boolean;
+  atualizarProntuario: boolean;
+  deletarProntuario: boolean;
+  listarProntuario: boolean;
 }

@@ -1,5 +1,7 @@
-package io.github.jiangdequan;
-
-public @interface prontuario.model.ts {
-    
+export interface Prontuario {
+  id: number;
+  receituario: string;
+  exames: string;
+  observacoes: string;
+  consultaId: number;
 }

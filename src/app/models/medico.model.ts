@@ -1,8 +1,13 @@
 import { Especialidade } from "./especialidade.model";
 
 export interface Medico {
-  id: string;
+  id: number;
   nome: string;
-  crm : string;
-  especialidade: Especialidade;
+  especialidade: string;
+  crm: string;
+  email: string;
+  telefone: string;
+  sexo: string;
+  cpf: string;
+  dataNascimento: string;
 }
