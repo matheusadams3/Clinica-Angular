@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Especialidade } from 'src/app/models/especialidade.model';
-import { EspecialidadeService } from 'src/app/services/especialidade.service';
+import { EspecialidadeService } from 'src/app/services/especialidade/especialidade.service';
 
 @Component({
   selector: 'app-especialidade-listar',
@@ -48,6 +48,7 @@ onSearch() {
           binId: response.body.metadata.id,
           id: response.body.record.id,
           nome: response.body.record.nome,
+          descricao: response.body.record.descricao
         };
         console.log('Especialidade encontrada:', this.especialidade);
       },

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Especialidade } from 'src/app/models/especialidade.model';
-import { EspecialidadeService } from 'src/app/services/especialidade.service';
+import { EspecialidadeService } from 'src/app/services/especialidade/especialidade.service';
 
 @Component({
   selector: 'app-especialidade-adicionar',
@@ -10,13 +10,13 @@ import { EspecialidadeService } from 'src/app/services/especialidade.service';
 })
 export class EspecialidadeAdicionarComponent {
 
-  especialidade:Especialidade = {nome: '', id :'', binId: ''};
+  especialidade:Especialidade = {nome: '', id :'', binId: '', descricao: ''};
   
   onSubmit(form: NgForm): void {
     if (this.especialidade.nome) {
       this.especialidade.id = crypto.randomUUID();
       this.especialidadeService.save(this.especialidade).subscribe({
-        next: (response) => {
+        next: (response: any) => {
           console.log(response);
           alert('Especialidade cadastrada com sucesso! Id:'+ response.body.metadata.id );
           form.resetForm();
@@ -31,6 +31,6 @@ export class EspecialidadeAdicionarComponent {
   constructor(private especialidadeService: EspecialidadeService) {}
 
   limparCampos() {
-    this.especialidade = { nome: '', id: '', binId: '' };
+    this.especialidade = { nome: '', id: '', binId: '', descricao: ''};
   }
 }
