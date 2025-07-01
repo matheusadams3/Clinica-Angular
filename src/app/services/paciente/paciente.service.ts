@@ -56,5 +56,14 @@ export class PacienteService {
   }
 
   constructor(private http: HttpClient) { }
-
+  
+  listar(): Observable<Paciente[]> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Bin-Name': 'pacientes',
+      'X-ACCESS-KEY': X_ACCESS_KEY
+    });
+    return this.http.get<Paciente[]>(API_URL, { headers });
+  }
+  
 }

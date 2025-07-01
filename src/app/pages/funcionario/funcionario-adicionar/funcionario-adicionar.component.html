@@ -1,0 +1,36 @@
+<div class="container" style="margin-top:40px;">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form #funcionarioForm="ngForm" (ngSubmit)="onSubmit(funcionarioForm)" novalidate>
+          <div class="form-group" style="margin-bottom: 25px;">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" required [(ngModel)]="funcionario.nome" placeholder="Digite o nome" />
+          </div>
+  
+          <div class="form-group" style="margin-bottom: 25px;">
+            <label for="cpf">CPF</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" required [(ngModel)]="funcionario.cpf" placeholder="Digite o CPF" />
+          </div>
+  
+          <div class="form-group" style="margin-bottom: 25px;">
+            <label for="usuario">Usuário</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" required [(ngModel)]="funcionario.usuario" placeholder="Digite o nome de usuário" />
+          </div>
+  
+          <div class="form-group" style="margin-bottom: 25px;">
+            <label for="senha">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" required [(ngModel)]="funcionario.senha" placeholder="Digite a senha" />
+          </div>
+  
+          <div class="form-group" style="margin-bottom: 25px;">
+            <label for="contato">Contato</label>
+            <input type="text" class="form-control" id="contato" name="contato" required [(ngModel)]="funcionario.contato" placeholder="Digite o telefone ou celular" />
+          </div>
+  
+          <button type="submit" class="btn btn-primary">
+            Cadastrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>

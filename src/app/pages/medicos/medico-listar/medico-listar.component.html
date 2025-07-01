@@ -1,1 +1,24 @@
-<p>medico-listar works!</p>
+<div class="container">
+    <h3>Lista de Médicos</h3>
+    <table class="table table-striped" *ngIf="medicos && medicos.length">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Especialidade</th>
+          <th>CRM</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medico of medicos">
+          <td>{{ medico.nome }}</td>
+          <td>{{ medico.especialidade }}</td>
+          <td>{{ medico.crm }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="editar(medico)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="excluir(medico.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

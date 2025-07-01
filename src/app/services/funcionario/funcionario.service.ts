@@ -7,55 +7,33 @@ import { API_URL, X_ACCESS_KEY } from 'src/app/utils/constants';
 @Injectable({
   providedIn: 'root'
 })
-
 export class FuncionarioService {
 
-  save(funcionario: Funcionario): Observable<any>{
-    const headers = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'X-Bin-Name':'funcionarios',
-      'X-ACCESS-KEY': X_ACCESS_KEY
-    });
-    return this.http.post(API_URL, funcionario, { 
-      headers, 
-      observe: 'response' 
-    });
+  private headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'X-Bin-Name': 'funcionarios',
+    'X-ACCESS-KEY': X_ACCESS_KEY
+  });
+
+  constructor(private http: HttpClient) {}
+
+  salvar(funcionario: Funcionario): Observable<Funcionario> {
+    return this.http.post<Funcionario>(API_URL, funcionario, { headers: this.headers });
   }
 
-  update(id: string, funcionario: Funcionario): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-Bin-Name': 'funcionarios',
-      'X-ACCESS-KEY': X_ACCESS_KEY
-    });
-    return this.http.put(`${API_URL}/${id}`, funcionario, {
-      headers,
-      observe: 'response'
-    });
+  listar(): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(API_URL, { headers: this.headers });
   }
 
-  getById(searchId: string) : Observable<any> {
-    const headers = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'X-Bin-Name': 'funcionarios',
-      'X-ACCESS-KEY': X_ACCESS_KEY
-    });
-    return this.http.get<Funcionario>(`${API_URL}/${searchId}`, { 
-      headers, 
-      observe: 'response' 
-    });
+  atualizar(id: number, funcionario: Funcionario): Observable<Funcionario> {
+    return this.http.put<Funcionario>(`${API_URL}/${id}`, funcionario, { headers: this.headers });
   }
 
-  delete(id: string) : Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'X-ACCESS-KEY': X_ACCESS_KEY
-    });
-    return this.http.delete(`${API_URL}/${id}`, { 
-      headers, 
-      observe: 'response' 
-    });
+  buscarPorId(id: number): Observable<Funcionario> {
+    return this.http.get<Funcionario>(`${API_URL}/${id}`, { headers: this.headers });
   }
 
-  constructor(private http: HttpClient) { }
+  excluir(id: number): Observable<any> {
+    return this.http.delete(`${API_URL}/${id}`, { headers: this.headers });
+  }
 }

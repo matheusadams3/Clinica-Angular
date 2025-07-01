@@ -1,0 +1,26 @@
+<div class="container">
+    <h3>Lista de Funcionários</h3>
+    <table class="table table-striped" *ngIf="funcionarios && funcionarios.length">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Usuário</th>
+          <th>Contato</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let funcionario of funcionarios">
+          <td>{{ funcionario.nome }}</td>
+          <td>{{ funcionario.cpf }}</td>
+          <td>{{ funcionario.usuario }}</td>
+          <td>{{ funcionario.contato }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm" (click)="editar(funcionario)">Editar</button>
+            <button class="btn btn-danger btn-sm" (click)="excluir(funcionario.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
